@@ -3,5 +3,3 @@
 /target/generated-sources/
 /target/maven-status/
 *.iml
-# Project exclude paths
-/target/
