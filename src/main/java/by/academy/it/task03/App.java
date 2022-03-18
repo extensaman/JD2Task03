@@ -46,7 +46,9 @@ package by.academy.it.task03;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static final int BASE_TIME = 198;
+
+    public static void main(String[] args )
     {
         System.out.println("Привет!");
     }
