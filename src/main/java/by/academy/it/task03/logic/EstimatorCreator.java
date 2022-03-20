@@ -1,15 +1,22 @@
 package by.academy.it.task03.logic;
 
+import by.academy.it.task03.entity.CalculatedTime;
 import by.academy.it.task03.entity.Student;
 import by.academy.it.task03.entity.StudentType;
-import by.academy.it.task03.entity.TotalTime;
-
-import static by.academy.it.task03.App.BASE_TIME;
+import org.apache.commons.math3.util.Precision;
 
 public class EstimatorCreator {
-    // need Singleton
 
-    public static Estimator create (StudentType studentType) {
+    private static final int PRECISION = 2;
+    private static class SingletonHolder {
+        private static final EstimatorCreator INSTANCE = new EstimatorCreator();
+    }
+
+    public static EstimatorCreator getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+
+    public Estimator create(StudentType studentType) {
         switch (studentType) {
             case TYPE01:
                 return new Type01StudentEstimator();
@@ -22,36 +29,37 @@ public class EstimatorCreator {
         }
     }
 
-    private static class Type01StudentEstimator implements Estimator{
+    private class Type01StudentEstimator implements Estimator {
+
         @Override
-        public TotalTime doEstimate(Student student) {
+        public CalculatedTime doEstimate(Student student, int baseTime) {
             double talantLevel = student.getTalantLevel();
-            double practiceTime = BASE_TIME / 3.0 / talantLevel;
-            double studyTime = BASE_TIME / 3.0 / talantLevel;
-            double searchTime = BASE_TIME / 3.0 / talantLevel;
-            return new TotalTime(practiceTime, studyTime, searchTime);
+            double practiceTime = Precision.round(baseTime / 3.0 / talantLevel, PRECISION);
+            double studyTime = Precision.round (baseTime / 3.0 / talantLevel, PRECISION);
+            double searchTime = Precision.round (baseTime / 3.0 / talantLevel, PRECISION);
+            return new CalculatedTime(practiceTime, studyTime, searchTime);
         }
     }
 
-    private static class Type02StudentEstimator implements Estimator{
+    private class Type02StudentEstimator implements Estimator {
         @Override
-        public TotalTime doEstimate(Student student) {
+        public CalculatedTime doEstimate(Student student, int baseTime) {
             double talantLevel = student.getTalantLevel();
-            double practiceTime = BASE_TIME / talantLevel;
-            double studyTime = BASE_TIME / talantLevel;
+            double practiceTime = Precision.round(baseTime / talantLevel, PRECISION);
+            double studyTime = Precision.round(baseTime / talantLevel, PRECISION);
             double searchTime = .0;
-            return new TotalTime(practiceTime, studyTime, searchTime);
+            return new CalculatedTime(practiceTime, studyTime, searchTime);
         }
     }
 
-    private static class Type03StudentEstimator implements Estimator{
+    private class Type03StudentEstimator implements Estimator {
         @Override
-        public TotalTime doEstimate(Student student) {
+        public CalculatedTime doEstimate(Student student, int baseTime) {
             double talantLevel = student.getTalantLevel();
-            double practiceTime = BASE_TIME * 3.0 / talantLevel;
+            double practiceTime = Precision.round(baseTime * 3.0 / talantLevel, PRECISION);
             double studyTime = .0;
             double searchTime = .0;
-            return new TotalTime(practiceTime, studyTime, searchTime);
+            return new CalculatedTime(practiceTime, studyTime, searchTime);
         }
     }
 }

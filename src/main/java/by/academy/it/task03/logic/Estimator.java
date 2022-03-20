@@ -1,8 +1,8 @@
 package by.academy.it.task03.logic;
 
 import by.academy.it.task03.entity.Student;
-import by.academy.it.task03.entity.TotalTime;
+import by.academy.it.task03.entity.CalculatedTime;
 
 public interface Estimator {
-    TotalTime doEstimate(Student student);
+    CalculatedTime doEstimate(Student student, int baseTime);
 }

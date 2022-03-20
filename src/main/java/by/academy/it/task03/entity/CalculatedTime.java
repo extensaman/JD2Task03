@@ -1,13 +1,14 @@
 package by.academy.it.task03.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TotalTime {
+public class CalculatedTime implements Serializable {
     private final double practiceTime;
     private final double studyTime;
     private final double searchTime;
 
-    public TotalTime(double practiceTime, double studyTime, double searchTime) {
+    public CalculatedTime(double practiceTime, double studyTime, double searchTime) {
         this.practiceTime = practiceTime;
         this.studyTime = studyTime;
         this.searchTime = searchTime;
@@ -29,10 +30,10 @@ public class TotalTime {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TotalTime totalTime = (TotalTime) o;
-        return Double.compare(totalTime.practiceTime, practiceTime) == 0 &&
-                Double.compare(totalTime.studyTime, studyTime) == 0 &&
-                Double.compare(totalTime.searchTime, searchTime) == 0;
+        CalculatedTime calculatedTime = (CalculatedTime) o;
+        return Double.compare(calculatedTime.practiceTime, practiceTime) == 0 &&
+                Double.compare(calculatedTime.studyTime, studyTime) == 0 &&
+                Double.compare(calculatedTime.searchTime, searchTime) == 0;
     }
 
     @Override
@@ -42,7 +43,7 @@ public class TotalTime {
 
     @Override
     public String toString() {
-        return "TotalTime{" +
+        return "CalculatedTime{" +
                 "practiceTime=" + practiceTime +
                 ", studyTime=" + studyTime +
                 ", searchTime=" + searchTime +
