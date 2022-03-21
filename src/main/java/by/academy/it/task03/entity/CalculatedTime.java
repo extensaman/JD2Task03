@@ -14,6 +14,12 @@ public class CalculatedTime implements Serializable {
         this.searchTime = searchTime;
     }
 
+    public CalculatedTime() {
+        this.practiceTime = 0.0;
+        this.studyTime = 0.0;
+        this.searchTime = 0.0;
+    }
+
     public double getPracticeTime() {
         return practiceTime;
     }

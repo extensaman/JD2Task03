@@ -13,10 +13,11 @@ public class EstimationRequest implements Serializable {
         this.studentType = studentType;
     }
 
-    public EstimationRequest(){
+    public EstimationRequest() {
         this.student = new Student();
         this.studentType = null;
     }
+
     public Student getStudent() {
         return student;
     }
@@ -37,5 +38,13 @@ public class EstimationRequest implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(student, studentType);
+    }
+
+    @Override
+    public String toString() {
+        return "EstimationRequest{" +
+                "student=" + student +
+                ", studentType=" + studentType +
+                '}';
     }
 }

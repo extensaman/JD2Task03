@@ -1,10 +1,10 @@
 package by.academy.it.task03.logic;
 
+import by.academy.it.task03.dao.EstimationDao;
+import by.academy.it.task03.dao.EstimationDaoException;
 import by.academy.it.task03.entity.CalculatedTime;
 import by.academy.it.task03.entity.EstimationRequest;
 import by.academy.it.task03.entity.EstimationResponse;
-import by.academy.it.task03.utility.filework.FileWorker;
-import by.academy.it.task03.utility.filework.FileWorkerException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,18 +16,18 @@ import static by.academy.it.task03.App.BASE_TIME;
 
 public class Controller {
     private static final Logger logger = LogManager.getLogger(Controller.class);
-    private final FileWorker<EstimationRequest, EstimationResponse> fileWorker;
+    private final EstimationDao<EstimationRequest, EstimationResponse> estimationDao;
 
-    public Controller(FileWorker<EstimationRequest, EstimationResponse> fileWorker) {
-        this.fileWorker = fileWorker;
+    public Controller(EstimationDao<EstimationRequest, EstimationResponse> estimationDao) {
+        this.estimationDao = estimationDao;
     }
 
     public void execute() {
         Collection<EstimationRequest> requests = null;
 
         try {
-            requests = fileWorker.readRequest();
-        } catch (FileWorkerException e) {
+            requests = estimationDao.readRequest();
+        } catch (EstimationDaoException e) {
             logger.error(e);
             return;
         }
@@ -37,8 +37,8 @@ public class Controller {
                 .collect(Collectors.toList());
 
         try {
-            fileWorker.writeResponse(responses);
-        } catch (FileWorkerException e) {
+            estimationDao.writeResponse(responses);
+        } catch (EstimationDaoException e) {
             logger.error(e);
         }
     }

@@ -1,8 +1,8 @@
 package by.academy.it.task03;
 
+import by.academy.it.task03.dao.impl.JsonFileWorker;
 import by.academy.it.task03.logic.Controller;
 import by.academy.it.task03.utility.RequestGenerator;
-import by.academy.it.task03.utility.filework.JSONFileWorker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,7 +58,7 @@ public class App {
 
     public static void main(String[] args) {
         RequestGenerator.generateToFile(REQUEST_FILE);
-        Controller controller = new Controller(new JSONFileWorker(REQUEST_FILE, RESPONSE_FILE));
+        Controller controller = new Controller(new JsonFileWorker(REQUEST_FILE, RESPONSE_FILE));
         controller.execute();
         logger.debug(logger.getName() + ": Application successfully finished");
     }

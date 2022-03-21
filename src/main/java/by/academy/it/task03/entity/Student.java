@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Student implements Serializable {
+    public static final int PRECISION = 2;
     private final String id;
     private final double talantLevel;
 
@@ -18,12 +19,11 @@ public class Student implements Serializable {
     public Student() {
         this.id = "00";
         this.talantLevel = 0.0;
-
     }
 
     public Student(String id) {
         this.id = id;
-        this.talantLevel = Precision.round(new Random().nextInt(10) / 10.0 + 0.1, 2);
+        this.talantLevel = Precision.round(new Random().nextInt(10) / 10.0 + 0.1, PRECISION);
     }
 
     public String getId() {
