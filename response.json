@@ -1,0 +1,9 @@
+{"student":{"id":"01","talantLevel":0.9},"studentType":"TYPE01","calculatedTime":{"practiceTime":73.33,"studyTime":73.33,"searchTime":73.33},"fullTume":219.99}
+{"student":{"id":"02","talantLevel":1.0},"studentType":"TYPE02","calculatedTime":{"practiceTime":198.0,"studyTime":198.0,"searchTime":0.0},"fullTume":396.0}
+{"student":{"id":"03","talantLevel":0.1},"studentType":"TYPE03","calculatedTime":{"practiceTime":5940.0,"studyTime":0.0,"searchTime":0.0},"fullTume":5940.0}
+{"student":{"id":"04","talantLevel":1.0},"studentType":"TYPE01","calculatedTime":{"practiceTime":66.0,"studyTime":66.0,"searchTime":66.0},"fullTume":198.0}
+{"student":{"id":"05","talantLevel":1.0},"studentType":"TYPE02","calculatedTime":{"practiceTime":198.0,"studyTime":198.0,"searchTime":0.0},"fullTume":396.0}
+{"student":{"id":"06","talantLevel":0.2},"studentType":"TYPE03","calculatedTime":{"practiceTime":2970.0,"studyTime":0.0,"searchTime":0.0},"fullTume":2970.0}
+{"student":{"id":"07","talantLevel":0.1},"studentType":"TYPE01","calculatedTime":{"practiceTime":660.0,"studyTime":660.0,"searchTime":660.0},"fullTume":1980.0}
+{"student":{"id":"08","talantLevel":0.7},"studentType":"TYPE02","calculatedTime":{"practiceTime":282.86,"studyTime":282.86,"searchTime":0.0},"fullTume":565.72}
+{"student":{"id":"09","talantLevel":0.5},"studentType":"TYPE03","calculatedTime":{"practiceTime":1188.0,"studyTime":0.0,"searchTime":0.0},"fullTume":1188.0}
